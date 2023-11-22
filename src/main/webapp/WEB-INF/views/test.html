@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p th:text="${size}"></p>
+    <table  th:each="tour : ${carouselList}">
+        <tr th:text="${tour.getTitle()}">
+
+        </tr>
+    </table>
+
+
+<!--    <div th:each="tour : ${carouselList}">-->
+<!--            <ul>-->
+<!--                <li th:text="*{tour.getTitle()}"></li>-->
+<!--                <li th:text="${tour.getSale()}"></li>-->
+<!--                <li th:text="${tour.getIntro()}"></li>-->
+<!--                <li th:text="${tour.getPrice()()}"></li>-->
+<!--                <li th:text="${tour.getId()}"></li>-->
+<!--            </ul>-->
+<!--    </div>-->
+
+    
+</body>
+</html>

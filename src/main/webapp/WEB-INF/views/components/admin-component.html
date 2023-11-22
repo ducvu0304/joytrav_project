@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>JoyTrav</title>
+
+    <link rel="stylesheet" th:replace="components/common-library :: admin-css">
+    <link rel="stylesheet" th:replace="components/common-library :: boostrap-5">
+    <link rel="stylesheet" th:replace="components/common-library :: font-awesome">
+    <link rel="stylesheet" th:replace="components/common-library :: flat-icon-bold">
+    <link rel="stylesheet" th:replace="components/common-library :: flat-icon-regular">
+    <link rel="stylesheet" th:replace="components/common-library :: flat-icon-solid">
+</head>
+<body>
+    <!--Sidebar-->
+    <div th:fragment="sidebar">
+        <div class="logo ms-4 mt-3">
+            <img alt="" class="w-100" src="images//logo.png">
+        </div>
+        <div class="mt-4">
+            <ul class="sidebar-list">
+                <li class="sidebar-item" >
+                    <img alt="Revenue" class="sidebar-icon" src="/icons/home-button.png">
+                    <p class="sidebar-title">Dashboard</p>
+                </li>
+                <li class="sidebar-item">
+                    <img alt="Revenue" class="sidebar-icon" src="/icons//travel.png">
+                    <a href="/manage-tour">
+                        <p class="sidebar-title">Tour</p>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <img alt="Revenue" class="sidebar-icon" src="/icons//hotel.png">
+                    <p class="sidebar-title">Hotel</p>
+                </li>
+                <li class="sidebar-item">
+                    <img alt="Revenue" class="sidebar-icon" src="/icons//chart.png">
+                    <p class="sidebar-title">Charts</p>
+                </li>
+                <li class="sidebar-item">
+                    <img alt="Revenue" class="sidebar-icon" src="/icons//revenue.png">
+                    <p class="sidebar-title">Revenue</p>
+                </li>
+                <li class="sidebar-item">
+                    <img alt="Revenue" class="sidebar-icon" src="/icons/total-client.png">
+                    <p class="sidebar-title">Account</p>
+                </li>
+                <li class="sidebar-item">
+                    <img alt="Comment" class="sidebar-icon" src="/icons//comment.png">
+                    <p class="sidebar-title">Comment</p>
+                </li>
+                <li class="sidebar-item">About</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

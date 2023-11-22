@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--CSS-->
+    <link th:replace="components/common-library :: index-css"/>
+
+    <!-- Bootstrap 5-->
+    <link rel="stylesheet" th:replace="components/common-library :: bootstrap-5">
+    <script th:replace="components/common-library.html :: bootstrap-5-bundel"></script>
+
+    <!-- gg fonts icons -->
+    <link th:replace="components/common-library :: google-font"/>
+
+    <!--Font Awesome-->
+    <link th:replace="components/common-library :: font-awesome-5-15-1"/>
+
+
+    <!--  jQuery, Moment.js and Date Range Picker's files -->
+    <script
+            type="text/javascript"
+            src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"
+    ></script>
+
+    <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js">
+    </script>
+    <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js">
+    </script>
+    <link rel="stylesheet"
+          type="text/css"
+          href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
+
+    <title>JoyTrav</title>
+</head>
+<body>
+<!-- header -->
+<header th:replace="components/header :: header"></header>
+<!-- header end -->
+
+<!-- body -->
+<!-- carousel -->
+<div id="carouselExampleCaptions"
+     class="carousel slide position-relative"
+     data-bs-ride="carousel"
+     data-bs-interval="3000"
+     data-bs-pause="false">
+    <!-- 1 -->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="/images/carousel-HL.jpg"
+                 class="d-block w-100 h-100"
+                 alt="Slide 1"/>
+        </div>
+        <div class="carousel-item">
+            <img src="/images/carousel-PT.jpg"
+                 class="d-block w-100 h-100"
+                 alt="Slide 2"/>
+        </div>
+        <div class="carousel-item">
+            <img src="/images/carousel-DN.jpg"
+                 class="d-block w-100 h-100"
+                 alt="Slide 3"/>
+        </div>
+    </div>
+
+    <div id="homeCarouselButtonsContainer"
+         class="d-flex gap-3 position-absolute"
+    >
+        <button class="home-carousel-button d-flex justify-content-center align-items-center gap-3 w-50 h-100"
+                onclick="handleHotelButtonClick()"
+        >
+            <span class="material-symbols-outlined"> hotel </span> Hotel
+        </button>
+        <button class="home-carousel-button d-flex justify-content-center align-items-center gap-3 w-50 h-100"
+                onclick="handleTourButtonClick()"
+        >
+            <span class="material-symbols-outlined"> flight_takeoff </span> Tour
+        </button>
+    </div>
+
+    <form action="#" method="get">
+        <div id="homeSearchForm"
+             class="d-flex flex-row container position-absolute w-75 py-5">
+            <!-- form contents sẽ được render ở đây -->
+        </div>
+    </form>
+    <!-- 1 -->
+</div>
+<!-- carousel end -->
+
+<!-- special offers -->
+<h3 class="text-center py-3">Special offers</h3>
+<div id="specialOffersCarousel"
+     class="carousel slide p-0 m-3"
+     data-bs-ride="carousel">
+    <div class="carousel-inner p-y-0 px-5">
+        <div class="carousel-item active" style="max-height: 300px">
+            <div class="row">
+                <!-- First group of items -->
+                <div class="w-25 h-100 image-container position-relative col-md-3 d-flex justify-content-center">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                         class="img-fluid w-100 shadow-1-strong rounded"
+                         alt="Boat on Calm Water"/>
+                    <div class="overlay-text h-100 d-flex justify-content-center align-items-center top-0 left-0 position-absolute">
+                        Text for the second image
+                    </div>
+                </div>
+                <div class="w-25 h-100 image-container position-relative col-md-3 d-flex justify-content-center">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                         class="img-fluid w-100 shadow-1-strong rounded"
+                         alt="Boat on Calm Water"/>
+                    <div class="overlay-text h-100 d-flex justify-content-center align-items-center top-0 left-0 position-absolute">
+                        Text for the second image
+                    </div>
+                </div>
+                <div class="w-25 h-100 image-container position-relative col-md-3 d-flex justify-content-center">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                         class="img-fluid w-100 shadow-1-strong rounded"
+                         alt="Boat on Calm Water"/>
+                    <div class="overlay-text h-100 d-flex justify-content-center align-items-center top-0 left-0 position-absolute">
+                        Text for the second image
+                    </div>
+                </div>
+                <div class="w-25 h-100 image-container position-relative col-md-3 d-flex justify-content-center">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                         class="img-fluid w-100 shadow-1-strong rounded"
+                         alt="Boat on Calm Water"/>
+                    <div class="overlay-text h-100 d-flex justify-content-center align-items-center top-0 left-0 position-absolute">
+                        Text for the second image
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="row">
+                <!-- Second group of items -->
+                <div class="w-25 h-100 image-container position-relative col-md-3 d-flex justify-content-center">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(18).webp"
+                         class="img-fluid w-100 shadow-1-strong rounded"
+                         alt="Boat on Calm Water"/>
+                    <div class="overlay-text h-100 d-flex justify-content-center align-items-center top-0 left-0 position-absolute">
+                        Text for the second image
+                    </div>
+                </div>
+                <div class="w-25 h-100 image-container position-relative col-md-3 d-flex justify-content-center">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(18).webp"
+                         class="img-fluid w-100 shadow-1-strong rounded"
+                         alt="Boat on Calm Water"/>
+                    <div class="overlay-text h-100 d-flex justify-content-center align-items-center top-0 left-0 position-absolute">
+                        Text for the second image
+                    </div>
+                </div>
+                <div class="w-25 h-100 image-container position-relative col-md-3 d-flex justify-content-center">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(18).webp"
+                         class="img-fluid w-100 shadow-1-strong rounded"
+                         alt="Boat on Calm Water"/>
+                    <div class="overlay-text h-100 d-flex justify-content-center align-items-center top-0 left-0 position-absolute">
+                        Text for the second image
+                    </div>
+                </div>
+                <div class="w-25 h-100 image-container position-relative col-md-3 d-flex justify-content-center">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(18).webp"
+                         class="img-fluid w-100 shadow-1-strong rounded"
+                         alt="Boat on Calm Water"/>
+                    <div class="overlay-text h-100 d-flex justify-content-center align-items-center top-0 left-0 position-absolute">
+                        Text for the second image
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Add more carousel items as needed -->
+    </div>
+
+    <!-- Carousel controls -->
+    <button class="bg-dark h-25 carousel-control-prev d-flex justify-content-start"
+            type="button"
+            data-bs-target="#specialOffersCarousel"
+            data-bs-slide="prev"
+            style="max-width: 2%; top: 35%">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="bg-dark h-25 carousel-control-next d-flex justify-content-end"
+            type="button"
+            data-bs-target="#specialOffersCarousel"
+            data-bs-slide="next"
+            style="max-width: 2%; top: 35%"
+    >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<!-- favorited destinations -->
+<h3 class="text-center py-3">Favorited Destinations</h3>
+<div class="container d-flex justify-content-center flex-column gap-3">
+    <div class="row h-100 w-100 p-0 m-0">
+        <div class="col">
+            <div class="w-100 image-container position-relative col-md-3 d-flex justify-content-center">
+                <img src="https://www.wallpapers13.com/wp-content/uploads/2016/01/Ha-Long-Bay-Vietnam-wallpaper-02-1920x1080.jpg"
+                     class="img-fluid w-100 h-100 shadow-1-strong rounded"
+                     alt="Boat on Calm Water"/>
+                <div class="p-5 text-white w-100 h-100 position-absolute">
+                    <h6><strong>Vietnam</strong></h6>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="w-100 image-container position-relative col-md-3 d-flex justify-content-center">
+                <img src="https://www.wallpapers13.com/wp-content/uploads/2016/02/Singapore-wallpaper-Hd-for-desktop-1920x1080.jpg"
+                     class="img-fluid w-100 h-100 shadow-1-strong rounded"
+                     alt="Boat on Calm Water"/>
+                <div class="p-5 text-white w-100 h-100 position-absolute">
+                    <h6><strong>Singapore</strong></h6>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="w-100 image-container position-relative col-md-3 d-flex justify-content-center">
+                <img src="https://cdn.suwalls.com/wallpapers/world/bangkok-3121-1920x1080.jpg"
+                     class="img-fluid w-100 h-100 shadow-1-strong rounded"
+                     alt="Boat on Calm Water"/>
+                <div class="p-5 text-white w-100 h-100 position-absolute">
+                    <h6><strong>Thailand</strong></h6>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row h-100 w-100 p-0 m-0">
+        <div class="col">
+            <div class="w-100 image-container position-relative col-md-3 d-flex justify-content-center">
+                <img src="https://wallpapers.com/images/featured/japan-4k-qbc6mlnwowjbszld.jpg"
+                     class="img-fluid w-100 h-100 shadow-1-strong rounded"
+                     alt="Boat on Calm Water"/>
+                <div class="p-5 text-white w-100 h-100 position-absolute">
+                    <h6><strong>Japan</strong></h6>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="w-100 image-container position-relative col-md-3 d-flex justify-content-center">
+                <img src="https://static.tumblr.com/d66660ca295a545af45c17406e24f1ea/sgukswj/Q9fnlxc5o/tumblr_static_tumblr_static_cz9zz3wnls000okk0osggswsk_focused_v3.jpg"
+                     class="img-fluid w-100 h-100 shadow-1-strong rounded"
+                     alt="Boat on Calm Water"/>
+                <div class="p-5 text-white w-100 h-100 position-absolute">
+                    <h6><strong>South Korea</strong></h6>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="w-100 image-container position-relative col-md-3 d-flex justify-content-center">
+                <img src="https://wallpapercosmos.com/w/full/4/e/4/615660-1920x1080-desktop-1080p-bhutan-wallpaper.jpg"
+                     class="img-fluid w-100 h-100 shadow-1-strong rounded"
+                     alt="Boat on Calm Water"/>
+                <div class="p-5 text-white w-100 h-100 position-absolute">
+                    <h6><strong>Bhutan</strong></h6>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tours by Categories -->
+<h3 class="text-center py-3">Tours by Categories</h3>
+<div class="container p-0 pb-3">
+    <div class="row px-4">
+        <div class="col">
+            <h5 class="text-center">Health Tourism</h5>
+            <img class="w-100 h-75"
+                 src="https://cdnimgen.vietnamplus.vn/uploaded/wbxx/2021_10_06/wellnesstravel.jpg"
+                 alt="Health Tourism"/>
+        </div>
+        <div class="col">
+            <h5 class="text-center">Cultural Tourism</h5>
+            <img class="w-100 h-75"
+                 src="https://hoianfoodtour.com/wp-content/uploads/2018/06/boat-trip-along-Bach-Dang-River-river.jpg"
+                 alt="Cultural Tourism"/>
+        </div>
+        <div class="col">
+            <h5 class="text-center">Religious Tourism</h5>
+            <img class="w-100 h-75"
+                 src="https://statics.vinpearl.com/Vietnam-religion-2_1679909996.jpg"
+                 alt="Religious Tourism"/>
+        </div>
+        <div class="col">
+            <h5 class="text-center">Sports Tourism</h5>
+            <img class="w-100 h-75"
+                 src="https://www.global-travels.net/wp-content/uploads/2019/09/football-tourism.jpg"
+                 alt="Sports Tourism"/>
+        </div>
+    </div>
+</div>
+
+<!-- Blogs & News -->
+<div class="container">
+    <!-- Heading -->
+    <h3 class="text-start py-3">Latest Blogs</h3>
+    <div>
+        <!-- Latest Blogs -->
+        <div class="row">
+            <!-- Left-pane -->
+            <div class="col-6 container d-flex flex-column justify-content-start">
+                <img
+                        class="w-100 pb-3"
+                        src="https://www.global-travels.net/wp-content/uploads/2019/09/football-tourism.jpg"
+                        alt=""
+                />
+                <h6>Lorem ipsum dolor sit amet.</h6>
+                <p class="d-inline-block text-truncate">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Molestiae neque ullam laboriosam doloribus rerum, dolorem nisi
+                    aspernatur minima sapiente quam magnam. Sit, id dolore. Officiis
+                    culpa fuga doloremque blanditiis fugit?
+                </p>
+                <p class="d-flex flex-row justify-content-between">
+              <span>
+                <strong> by DX Hiep </strong>
+                <br />
+                20/11/2023
+              </span>
+                    <button class="btn btn-outline-info">See more</button>
+                </p>
+            </div>
+            <!-- Right-pane -->
+            <div class="col-6">
+                <!-- Blog-Heading -->
+                <div id="blogsNavbar"
+                     class="p-0 d-flex justify-content-center gap-2">
+                    <a class="btn btn-outline-danger w-100 active"
+                       href="#postScrollspyHeading1">All</a>
+                    <a class="btn btn-outline-danger w-100" href="#postScrollspyBox1">Hotels</a>
+                    <a class="btn btn-outline-danger w-100" href="#postScrollspyBox2">Tips</a>
+                    <a class="btn btn-outline-danger w-100" href="#postScrollspyBox3">Discovery</a>
+                    <a class="btn btn-outline-danger w-100" href="#postScrollspyBox4">Blogging</a>
+                    <a class="btn btn-outline-danger w-100" href="#postScrollspyBox5">Galleries</a>
+                </div>
+                <!-- Body
+                 data-bs-target="#blogsNavbar"-->
+                <div data-bs-spy="scroll"
+
+                     data-bs-smoothscroll="true"
+                     class="overflow-auto w-100"
+                     tabindex="0"
+                     style="max-height: 530px; overflow-x: hidden !important">
+                    <!--PostScrollspyBox1 -->
+                    <div th:replace="components/blogs-news :: #postScrollspyBox1"></div>
+                    <!--PostScrollspyBox-2 -->
+                    <div th:replace="components/blogs-news :: #postScrollspyBox2"></div>
+                    <!--PostScrollspyBox-3 -->
+                    <div th:replace="components/blogs-news :: #postScrollspyBox3"></div>
+                    <!--PostScrollspyBox-4 -->
+                    <div th:replace="components/blogs-news :: #postScrollspyBox4"></div>
+                    <!--PostScrollspyBox-5 -->
+                    <div th:replace="components/blogs-news :: #postScrollspyBox5"></div>
+                </div>
+                <!-- End Body -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- body end -->
+
+<!-- footer -->
+<hr class="mt-5">
+<div th:replace="components/footer :: footer"></div>
+<!-- footer end -->
+
+<script>
+    const formContainer = document.getElementById("homeSearchForm");
+    function clearButtonStyles() {
+        let buttons = document.querySelectorAll(".home-carousel-button");
+
+        buttons.forEach(function (button) {
+            button.style.boxShadow = "";
+        });
+    }
+    function initializeDateRangePicker() {
+        $('input[name="daterange"]').daterangepicker(
+            {
+                opens: "left",
+            },
+            function (start, end, label) {
+                console.log(
+                    "A new date selection was made: " +
+                    start.format("YYYY-MM-DD") +
+                    " to " +
+                    end.format("YYYY-MM-DD")
+                );
+                // You can add additional logic here based on the selected date range
+            }
+        );
+    }
+    initializeDateRangePicker();
+
+    // home-carousel-button
+
+    const hotelFormContent = `
+        <!-- Bên trái của form -->
+        <div class="container d-flex flex-column gap-3 h-100 w-100">
+          <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping"
+              ><span class="material-symbols-outlined text-danger">
+                location_on
+              </span></span
+            >
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter destination (E.g: Ha Long )"
+              aria-describedby="addon-wrapping"
+            />
+          </div>
+
+          <div class="input-group">
+            <span class="input-group-text">
+              <span class="material-symbols-outlined text-danger">
+                payments
+              </span>
+            </span>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="Min price"
+              min="1"
+            />
+            <input type="number" class="form-control" placeholder="Max price" />
+          </div>
+
+          <div class="container p-0 d-flex flex-row gap-4">
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text" id="addon-wrapping"
+                ><span class="material-symbols-outlined text-danger">
+                  person
+                </span></span
+              >
+              <input
+                type="number"
+                class="form-control"
+                placeholder="Number of adults"
+              />
+            </div>
+
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text" id="addon-wrapping"
+                ><span class="material-symbols-outlined text-danger">
+                  person
+                </span></span
+              >
+              <input
+                type="number"
+                class="form-control"
+                placeholder="Number of child"
+              />
+            </div>
+          </div>
+        </div>
+        <!-- Bên trái của form -->
+
+        <!-- Bên phải của form -->
+        <div
+          class="container w-75 h-100 d-flex flex-column justify-content-between align-items-end"
+        >
+          <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping"
+              ><span class="material-symbols-outlined text-danger">
+                <span class="material-symbols-outlined text-danger">
+                  date_range
+                </span>
+              </span></span
+            >
+            <input
+              class="form-control"
+              type="text"
+              name="daterange"
+              placeholder="01/01/2018 - 01/15/2018"
+              value=""
+            />
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-danger w-75 d-flex align-items-center justify-content-center"
+          >
+            Search &nbsp;
+            <span class="material-symbols-outlined"> travel_explore </span>
+          </button>
+        </div>
+        <!-- Bên phải của form -->
+        `;
+    const tourFormContent = `
+        <!-- Bên trái của form -->
+        <div class="container d-flex flex-column gap-3 h-100 w-100">
+          <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping"
+              ><span class="material-symbols-outlined text-danger">
+                location_on
+              </span></span
+            >
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter destination (E.g: Ha Long )"
+              aria-describedby="addon-wrapping"
+            />
+          </div>
+
+          <div class="input-group">
+            <span class="input-group-text">
+              <span class="material-symbols-outlined text-danger">
+                payments
+              </span>
+            </span>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="Min price"
+              min="1"
+            />
+            <input type="number" class="form-control" placeholder="Max price" />
+          </div>
+
+          <div class="container p-0 d-flex flex-row gap-4">
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text" id="addon-wrapping"
+                ><span class="material-symbols-outlined text-danger">
+                  globe
+                </span></span
+              >
+              <select class="form-select">
+                <option value="domestic" selected>Domestic</option>
+                <option value="international">International</option>
+              </select>
+            </div>
+
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text" id="addon-wrapping"
+                ><span class="material-symbols-outlined text-danger">
+                  explore
+                </span></span
+              >
+              <select class="form-select">
+                <option class="text-secondary" selected>Categories</option>
+                <option value="health">Health</option>
+                <option value="cultural">Cultural</option>
+                <option value="religious ">Religious</option>
+                <option value="sport">Sport</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <!-- Bên trái của form -->
+
+        <!-- Bên phải của form -->
+        <div
+          class="container w-75 h-100 d-flex flex-column justify-content-between align-items-end"
+        >
+          <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping"
+              ><span class="material-symbols-outlined text-danger">
+                <span class="material-symbols-outlined text-danger">
+                  date_range
+                </span>
+              </span></span
+            >
+            <input
+              class="form-control"
+              type="text"
+              name="daterange"
+              placeholder="01/01/2018 - 01/15/2018"
+              value=""
+            />
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-danger w-75 d-flex align-items-center justify-content-center"
+          >
+            Search &nbsp;
+            <span class="material-symbols-outlined"> travel_explore </span>
+          </button>
+        </div>
+        <!-- Bên phải của form -->
+        `;
+
+    function handleHotelButtonClick() {
+        let btn = document.getElementsByClassName("home-carousel-button")[0];
+
+        formContainer.innerHTML = "";
+        formContainer.innerHTML = hotelFormContent;
+        clearButtonStyles();
+        btn.style.boxShadow = "0 0 20px #eee";
+        initializeDateRangePicker();
+    }
+    handleHotelButtonClick();
+
+    function handleTourButtonClick() {
+        let btn = document.getElementsByClassName("home-carousel-button")[1];
+
+        formContainer.innerHTML = "";
+        formContainer.innerHTML = tourFormContent;
+        clearButtonStyles();
+        btn.style.boxShadow = "0 0 20px #eee";
+        initializeDateRangePicker();
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var navbar = document.getElementById("blogsNavbar");
+        var links = navbar.getElementsByTagName("a");
+
+        for (var i = 0; i < links.length; i++) {
+            links[i].addEventListener("click", function (event) {
+                var targetId = event.target.getAttribute("href").substring(1); // Get the target div's id without the '#'
+
+                // Remove the "active" class from all links
+                for (var j = 0; j < links.length; j++) {
+                    links[j].classList.remove("active");
+                }
+
+                // Add the "active" class to the clicked link
+                event.target.classList.add("active");
+
+                // Handle the "All" link separately
+                if (targetId === "postScrollspyHeading1") {
+                    var allDivs = document.querySelectorAll(
+                        "[id^='postScrollspyBox']"
+                    );
+                    for (var k = 0; k < allDivs.length; k++) {
+                        allDivs[k].classList.remove("d-none");
+                    }
+                } else {
+                    // Hide other divs based on the clicked link
+                    var allDivs = document.querySelectorAll(
+                        "[id^='postScrollspyBox']"
+                    );
+                    for (var k = 0; k < allDivs.length; k++) {
+                        if (allDivs[k].id === targetId) {
+                            allDivs[k].classList.remove("d-none");
+                        } else {
+                            allDivs[k].classList.add("d-none");
+                        }
+                    }
+                }
+            });
+        }
+    });
+
+
+</script>
+</body>
+</html>
